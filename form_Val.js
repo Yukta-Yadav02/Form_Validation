@@ -5,7 +5,7 @@ const formContainer = document.querySelector('.form-container');
 const inputs = document.querySelectorAll('input, select, textarea');
 const button = document.querySelector('button');
 
-// Toggle Dark Mode
+
 darkModeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     formContainer.classList.toggle('dark-mode');
@@ -116,11 +116,9 @@ const passwordError = document.getElementById("passwordError");
 const confirmError = document.getElementById("confirmError");
 const form = document.getElementById("passwordForm");
 
-// Password constraints
 const PASSWORD_MIN_LENGTH = 6;
 const PASSWORD_MAX_LENGTH = 12;
 
-// Real-time password validation
 passwordInput.addEventListener("input", () => {
   const passwordValue = passwordInput.value;
 
@@ -132,8 +130,6 @@ passwordInput.addEventListener("input", () => {
     passwordError.textContent = "";
   }
 });
-
-// Real-time confirm password validation
 confirmPasswordInput.addEventListener("input", () => {
   if (confirmPasswordInput.value !== passwordInput.value) {
     confirmError.textContent = "Passwords do not match.";
@@ -141,8 +137,6 @@ confirmPasswordInput.addEventListener("input", () => {
     confirmError.textContent = "";
   }
 });
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   let isValid = true;
 
@@ -170,43 +164,37 @@ submitBtn.addEventListener("click", function (event) {
   }
 
   if (!isValid) {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
   }
 });
 
 //Phone Number
 const phoneInput = document.getElementById("phone");
 const phoneError = document.getElementById("phoneError");
-// const form = document.getElementById('phoneForm');
 
-const phonePattern = /^[0-9]{10}$/; // Regex for exactly 10 digits
+const phonePattern = /^[0-9]{10}$/; 
 
-// Real-time phone number validation
 phoneInput.addEventListener("input", () => {
   const phoneValue = phoneInput.value;
 
-  // Check if the input contains only digits
   if (!/^\d*$/.test(phoneValue)) {
     phoneError.textContent = "Phone number can only contain digits.";
   }
-  // Check if the length exceeds 10 digits
   else if (phoneValue.length > 10) {
     phoneError.textContent = "Phone number must not exceed 10 digits.";
   } else {
-    phoneError.textContent = ""; // Clear the error message
+    phoneError.textContent = ""; 
   }
 });
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   const phoneValue = phoneInput.value;
 
   if (!phoneValue) {
     phoneError.textContent = "Phone number cannot be empty.";
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
   } else if (!phonePattern.test(phoneValue)) {
     phoneError.textContent = "Phone number must be exactly 10 digits.";
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
   }
 });
 
@@ -217,7 +205,6 @@ const ageError = document.getElementById("ageError");
 const MIN_AGE = 18;
 const MAX_AGE = 99;
 
-// Real-time age validation
 ageInput.addEventListener("input", () => {
   const ageValue = parseInt(ageInput.value, 10);
 
@@ -228,20 +215,18 @@ ageInput.addEventListener("input", () => {
   } else if (ageValue > MAX_AGE) {
     ageError.textContent = `Age must not exceed ${MAX_AGE}.`;
   } else {
-    ageError.textContent = ""; // Clear error message
+    ageError.textContent = ""; 
   }
 });
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   const ageValue = parseInt(ageInput.value, 10);
 
   if (!ageInput.value) {
     ageError.textContent = "Age cannot be empty.";
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
   } else if (isNaN(ageValue) || ageValue < MIN_AGE || ageValue > MAX_AGE) {
     ageError.textContent = `Age must be between ${MIN_AGE} and ${MAX_AGE}.`;
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
   }
 });
 
@@ -260,7 +245,6 @@ function validateGender() {
     return true;
   }
 }
-
 genderSelect.addEventListener("change", () => {
   validateGender();
 });
@@ -313,13 +297,11 @@ const schoolError = document.getElementById("schoolError");
 const percentageInput = document.getElementById("percentage12");
 const percentageError = document.getElementById("percentageError");
 
-const schoolPattern = /^[A-Za-z\s]+$/; // Only letters and spaces
-const MIN_SCHOOL_LENGTH = 5; // Minimum 5 characters
-const MAX_SCHOOL_LENGTH = 50; // Maximum 50 characters
+const schoolPattern = /^[A-Za-z\s]+$/; 
+const MIN_SCHOOL_LENGTH = 5; 
+const MAX_SCHOOL_LENGTH = 50; 
 const MIN_PERCENTAGE = 0;
 const MAX_PERCENTAGE = 100;
-
-// Real-time validation for school name
 schoolInput.addEventListener("input", () => {
   const schoolValue = schoolInput.value;
 
@@ -331,11 +313,9 @@ schoolInput.addEventListener("input", () => {
     schoolError.textContent =
       "School name can only contain letters and spaces.";
   } else {
-    schoolError.textContent = ""; // Clear error message
+    schoolError.textContent = ""; 
   }
 });
-
-// Real-time validation for percentage
 percentageInput.addEventListener("input", () => {
   const percentageValue = parseFloat(percentageInput.value);
 
@@ -346,11 +326,9 @@ percentageInput.addEventListener("input", () => {
   } else if (percentageValue > MAX_PERCENTAGE) {
     percentageError.textContent = `Percentage cannot exceed ${MAX_PERCENTAGE}.`;
   } else {
-    percentageError.textContent = ""; // Clear error message
+    percentageError.textContent = ""; 
   }
 });
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   let isValid = true;
 
@@ -386,7 +364,7 @@ submitBtn.addEventListener("click", function (event) {
   }
 
   if (!isValid) {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
   }
 });
 
@@ -394,14 +372,10 @@ submitBtn.addEventListener("click", function (event) {
 const aadharNoInput = document.getElementById("aadharNo");
 const aadharNoError = document.getElementById("aadharNoError");
 
-const AADHAR_PATTERN = /^[0-9]{12}$/; // Validates exactly 12 digits
-
-// Real-time Aadhar validation
+const AADHAR_PATTERN = /^[0-9]{12}$/;
 aadharNoInput.addEventListener("input", () => {
   validateAadhar();
 });
-
-// Validate Aadhar function
 function validateAadhar() {
   const aadharValue = aadharNoInput.value.trim();
 
@@ -412,16 +386,14 @@ function validateAadhar() {
     aadharNoError.textContent = "Please enter a valid 12-digit Aadhar number.";
     return false;
   } else {
-    aadharNoError.textContent = ""; // Clear error message
+    aadharNoError.textContent = ""; 
     return true;
   }
 }
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   const isValid = validateAadhar();
   if (!isValid) {
-    e.preventDefault(); // Prevent form submission if validation fails
+    e.preventDefault(); 
   }
 });
 
@@ -494,11 +466,11 @@ const addressError = document.getElementById("addressError");
 const cityError = document.getElementById("cityError");
 const stateError = document.getElementById("stateError");
 
-const MAX_ADDRESS_LENGTH = 100; // Max length for address
-const MAX_CITY_LENGTH = 50; // Max length for city
-const MAX_STATE_LENGTH = 50; // Max length for state
+const MAX_ADDRESS_LENGTH = 100; 
+const MAX_CITY_LENGTH = 50; 
+const MAX_STATE_LENGTH = 50; 
 
-const NAME_PATTERN = /^[A-Za-z\s]+$/; // Pattern for city and state: only letters and spaces
+const NAME_PATTERN = /^[A-Za-z\s]+$/; 
 
 // Validate Address
 function validateAddress() {
@@ -550,20 +522,17 @@ function validateState() {
     return true;
   }
 }
-
-// Real-time validation
 addressInput.addEventListener("input", validateAddress);
 cityInput.addEventListener("input", validateCity);
 stateInput.addEventListener("input", validateState);
 
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   const isAddressValid = validateAddress();
   const isCityValid = validateCity();
   const isStateValid = validateState();
 
   if (!isAddressValid || !isCityValid || !isStateValid) {
-    e.preventDefault(); // Prevent form submission if validation fails
+    e.preventDefault(); 
   }
 });
 
@@ -663,7 +632,6 @@ submitBtn.addEventListener("click", function (event) {
 const maritalStatusInputs = document.getElementsByName("maritalStatus");
 const statusError = document.getElementById("statusError");
 
-// Validate Marital Status
 function validateMaritalStatus() {
   const isChecked = Array.from(maritalStatusInputs).some(
     (input) => input.checked
@@ -677,17 +645,13 @@ function validateMaritalStatus() {
     return true;
   }
 }
-
-// Real-time validation
 maritalStatusInputs.forEach((input) => {
   input.addEventListener("change", validateMaritalStatus);
 });
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   const isValid = validateMaritalStatus();
   if (!isValid) {
-    e.preventDefault(); // Prevent form submission if validation fails
+    e.preventDefault(); 
   }
 });
 
@@ -736,7 +700,6 @@ function validateLinkedIn() {
     return true;
   }
 }
-//Real-time validation
 linkedinInput.addEventListener("input", function () {
   const linkedValue = linkedinInput.value.trim();
   const linkedPattern = /^https:\/\/(www\.)?linkedin\.com\/.*$/;
@@ -749,7 +712,6 @@ linkedinInput.addEventListener("input", function () {
     linkedError.textContent = "";
   }
 });
-//Submission
 submitBtn.addEventListener("click", function (event) {
   let isValid = true;
   if (!validateLinkedIn()) {
@@ -778,7 +740,6 @@ function validateGitHub() {
     return true;
   }
 }
-//Real-Time
 githubInput.addEventListener("input", function () {
   const githubValue = githubInput.value.trim();
   const githubPattern = /^https:\/\/(www\.)?github\.com\/[A-Za-z0-9-]+$/;
@@ -792,7 +753,6 @@ githubInput.addEventListener("input", function () {
     githubError.textContent = "";
   }
 });
-//Submission
 submitBtn.addEventListener("click", function (event) {
   let isValid = true;
   if (!validateGitHub()) {
@@ -808,7 +768,6 @@ submitBtn.addEventListener("click", function (event) {
 const skillsInputs = document.getElementsByName("skills");
 const skillsError = document.getElementById("skillsError");
 
-// Validate Skills
 function validateSkills() {
   const isChecked = Array.from(skillsInputs).some((input) => input.checked);
 
@@ -820,16 +779,13 @@ function validateSkills() {
     return true;
   }
 }
-// Real-time validation
 skillsInputs.forEach((input) => {
   input.addEventListener("change", validateSkills);
 });
-
-// Form submission validation
 submitBtn.addEventListener("click", function (event) {
   const isValid = validateSkills();
   if (!isValid) {
-    e.preventDefault(); // Prevent form submission if validation fails
+    e.preventDefault(); 
   }
 });
 
