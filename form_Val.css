@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.form-container {
+    /* width: 100%; */
+    max-width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+  }
+  .input-control {
+    margin-bottom: 15px;
+  }
+
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Very dark background */
+    color: #e0e0e0; /* Light gray text for dark mode */
+}
+
+.form-container.dark-mode {
+    background-color: #1e1e1e; /* Darker form background */
+    color: #e0e0e0; /* Light text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+input.dark-mode, select.dark-mode, textarea.dark-mode {
+    background-color: #2b2b2b; /* Dark gray input fields */
+    border-color: #444; /* Slightly lighter borders */
+    color: #e0e0e0; /* Light text for inputs */
+}
+
+input:focus.dark-mode, select:focus.dark-mode, textarea:focus.dark-mode {
+    border-color: #007bff; /* Blue border on focus */
+}
+
+button.dark-mode {
+    background-color: #007bff; /* Bright blue for contrast */
+    color: #ffffff;
+}
+
+button.dark-mode:hover {
+    background-color: #0056b3; /* Slightly darker blue */
+}
+
+/* Placeholder Text */
+::placeholder {
+    color: #adb5bd; /* Subtle gray placeholder */
+}
+
+::placeholder.dark-mode {
+    color: #6c757d; /* Subtle gray for dark mode */
+}
